@@ -1,8 +1,8 @@
 {% set name = "pymedphys" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.3" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "a1cfa7cba7bcf4ed5f667243cb9ee3404bfb7ba9b4ef1bd2a62ce97cca6ea18b" %}
+{% set hash_value = "24acb064e147efc666dff21f4b281eaf462a6199b7464f55dcd5b67442dba1e9" %}
 
 package:
   name: '{{ name|lower }}'
@@ -14,9 +14,9 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 0
+  number: 1000
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
   build:
@@ -33,7 +33,7 @@ requirements:
     - keyring
     - shapely
     - pydicom
-    - dateutil
+    - python-dateutil
 
 test:
   imports:
