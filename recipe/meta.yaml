@@ -1,8 +1,8 @@
 {% set name = "pymedphys" %}
-{% set version = "0.1.9" %}
+{% set version = "0.2.2" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "d7890a1e26d912ee9c219ef17205f8b6a84d5ae403c7367e5f59fa708699a939" %}
+{% set hash_value = "a1cfa7cba7bcf4ed5f667243cb9ee3404bfb7ba9b4ef1bd2a62ce97cca6ea18b" %}
 
 package:
   name: '{{ name|lower }}'
@@ -28,26 +28,33 @@ requirements:
     - scipy
     - pandas
     - matplotlib
-    - numba
     - attrs
-    - psutil
     - pymssql
     - keyring
     - shapely
     - pydicom
+    - dateutil
 
 test:
   imports:
     - pymedphys
-    - pymedphys.level1
-    - pymedphys.level2
+    - pymedphys.dcm
+    - pymedphys.electronfactors
+    - pymedphys.film
+    - pymedphys.geometry
+    - pymedphys.logfile
+    - pymedphys.msq
+    - pymedphys.mudensity
+    - pymedphys.plt
+    - pymedphys.trf
+    - pymedphys.utilities
 
 about:
-  home: https://github.com/CCA-Physics/pymedphys
+  home: https://gitlab.com/CCA-Physics/pymedphys
   license: GNU Affero General Public v3 or later (AGPL-3.0+)
   license_family: AGPL
   license_file: LICENSE
-  summary: Medical Physics python modules
+  summary: Medical Physics Python toolbox
 
 extra:
   recipe-maintainers:
