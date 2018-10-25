@@ -42,11 +42,9 @@ test:
     - pymedphys.electronfactors
     - pymedphys.film
     - pymedphys.geometry
-    - pymedphys.logfile
     - pymedphys.msq
     - pymedphys.mudensity
     - pymedphys.plt
-    - pymedphys.trf
     - pymedphys.utilities
 
 about:
