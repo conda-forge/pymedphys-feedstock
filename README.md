@@ -1,7 +1,7 @@
 About pymedphys
 ===============
 
-Home: https://github.com/CCA-Physics/pymedphys
+Home: https://gitlab.com/CCA-Physics/pymedphys
 
 Package license: GNU Affero General Public v3 or later (AGPL-3.0+)
 
