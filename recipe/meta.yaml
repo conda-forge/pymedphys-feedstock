@@ -1,8 +1,8 @@
 {% set name = "pymedphys" %}
-{% set version = "0.2.3" %}
+{% set version = "0.3.0" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "24acb064e147efc666dff21f4b281eaf462a6199b7464f55dcd5b67442dba1e9" %}
+{% set hash_value = "bdc8a6383502b825f3abb2e611cf0dda3894a1efc21ad0bee2b5ddb232251604" %}
 
 package:
   name: '{{ name|lower }}'
@@ -41,14 +41,18 @@ test:
     - pymedphys.dcm
     - pymedphys.electronfactors
     - pymedphys.film
+    - pymedphys.gamma
     - pymedphys.geometry
+    - pymedphys.logfile
     - pymedphys.msq
     - pymedphys.mudensity
     - pymedphys.plt
+    - pymedphys.trf
+    - pymedphys.type
     - pymedphys.utilities
 
 about:
-  home: https://gitlab.com/CCA-Physics/pymedphys
+  home: https://gitlab.com/pymedphys/pymedphys
   license: GNU Affero General Public v3 or later (AGPL-3.0+)
   license_family: AGPL
   license_file: LICENSE
