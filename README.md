@@ -7,7 +7,7 @@ Package license: GNU Affero General Public v3 or later (AGPL-3.0+)
 
 Feedstock license: BSD 3-Clause
 
-Summary: Medical Physics python modules
+Summary: Medical Physics Python Modules
 
 
 
