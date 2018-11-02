@@ -49,20 +49,7 @@ test:
     - pymedphys.plt
     - pymedphys.trf
     - pymedphys.type
-    - pymedphys.utilities
-  commands:
-    - pytest --pyargs pymedphys.dcm
-    - pytest --pyargs pymedphys.electronfactors
-    - pytest --pyargs pymedphys.film
-    - pytest --pyargs pymedphys.gamma
-    - pytest --pyargs pymedphys.msq
-    - pytest --pyargs pymedphys.mudensity
-    - pytest --pyargs pymedphys.plt
-    - pytest --pyargs pymedphys.type
-    - pytest --pyargs pymedphys.utilities
-  requires:
-    - pytest
-    
+    - pymedphys.utilities    
 
 about:
   home: https://pymedphys.com
