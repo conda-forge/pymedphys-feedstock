@@ -60,6 +60,8 @@ test:
     - pytest --pyargs pymedphys.plt
     - pytest --pyargs pymedphys.type
     - pytest --pyargs pymedphys.utilities
+  requires:
+    - pytest
     
 
 about:
