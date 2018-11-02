@@ -1,8 +1,8 @@
 {% set name = "pymedphys" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.3" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "bdc8a6383502b825f3abb2e611cf0dda3894a1efc21ad0bee2b5ddb232251604" %}
+{% set hash_value = "5ab045ad816c31a5cd5469594f42634d2b64e3a6c6f75e4af7df7b84fc88272f" %}
 
 package:
   name: '{{ name|lower }}'
@@ -50,9 +50,20 @@ test:
     - pymedphys.trf
     - pymedphys.type
     - pymedphys.utilities
+  commands:
+    - pytest --pyargs pymedphys.dcm
+    - pytest --pyargs pymedphys.electronfactors
+    - pytest --pyargs pymedphys.film
+    - pytest --pyargs pymedphys.gamma
+    - pytest --pyargs pymedphys.msq
+    - pytest --pyargs pymedphys.mudensity
+    - pytest --pyargs pymedphys.plt
+    - pytest --pyargs pymedphys.type
+    - pytest --pyargs pymedphys.utilities
+    
 
 about:
-  home: https://gitlab.com/pymedphys/pymedphys
+  home: https://pymedphys.com
   license: GNU Affero General Public v3 or later (AGPL-3.0+)
   license_family: AGPL
   license_file: LICENSE
