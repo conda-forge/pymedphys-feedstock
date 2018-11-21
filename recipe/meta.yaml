@@ -51,10 +51,10 @@ test:
     - pymedphys.trf
     - pymedphys.type
     - pymedphys.utilities
-  requires:
-    - pytest
-   commands:
-    - pytest --pyargs pymedphys
+#  requires:
+#    - pytest
+#  commands:
+#    - pytest --pyargs pymedphys
 
 about:
   home: https://pymedphys.com
