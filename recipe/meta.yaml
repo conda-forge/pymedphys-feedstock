@@ -39,7 +39,7 @@ test:
   requires:
     - pytest
   commands:
-    - py.test --pyargs package_name
+    - py.test --pyargs pymedphys
   imports:
     - pymedphys
     - pymedphys.clobbercheck
