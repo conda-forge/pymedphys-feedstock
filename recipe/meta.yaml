@@ -53,7 +53,7 @@ test:
     - pymedphys.utilities
   requires:
     - pytest
-   commands:
+  commands:
     - pytest --pyargs pymedphys
 
 about:
