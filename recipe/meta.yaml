@@ -1,8 +1,8 @@
 {% set name = "pymedphys" %}
-{% set version = "0.3.3" %}
+{% set version = "0.3.6" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "5ab045ad816c31a5cd5469594f42634d2b64e3a6c6f75e4af7df7b84fc88272f" %}
+{% set hash_value = "17309032771f8853bd32621f6373f02040875c5c394b3ba0ee569143f5c34869" %}
 
 package:
   name: '{{ name|lower }}'
@@ -38,6 +38,7 @@ requirements:
 test:
   imports:
     - pymedphys
+    - pymedphys.clobbercheck
     - pymedphys.dcm
     - pymedphys.electronfactors
     - pymedphys.film
@@ -49,7 +50,11 @@ test:
     - pymedphys.plt
     - pymedphys.trf
     - pymedphys.type
-    - pymedphys.utilities    
+    - pymedphys.utilities
+  requires:
+    - pytest
+   commands:
+    - pytest --pyargs pymedphys
 
 about:
   home: https://pymedphys.com
