@@ -14,7 +14,7 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
@@ -36,6 +36,10 @@ requirements:
     - python-dateutil
 
 test:
+  requires:
+    - pytest
+  commands:
+    - py.test --pyargs package_name
   imports:
     - pymedphys
     - pymedphys.clobbercheck
