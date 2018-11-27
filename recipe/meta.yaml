@@ -1,8 +1,8 @@
 {% set name = "pymedphys" %}
-{% set version = "0.3.8" %}
+{% set version = "0.4.3" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "db5c06a5bf4aaf859adc20379269a04daeae1113bc251f722658caea4c8212fc" %}
+{% set hash_value = "54fca2443c832bdacb22c543f0634755280a5b77a45ad5067dc587eed2a752e0" %}
 
 package:
   name: '{{ name|lower }}'
@@ -29,6 +29,7 @@ requirements:
     - pandas
     - matplotlib
     - attrs
+    - psutil
     - pymssql
     - keyring
     - shapely
