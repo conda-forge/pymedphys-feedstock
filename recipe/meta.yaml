@@ -40,16 +40,18 @@ requirements:
 test:
   imports:
     - pymedphys
-    - pymedphys.clobbercheck
+    - pymedphys.coll
     - pymedphys.dcm
+    - pymedphys.devices
     - pymedphys.electronfactors
     - pymedphys.film
     - pymedphys.gamma
     - pymedphys.geometry
+    - pymedphys.libutils
     - pymedphys.logfile
     - pymedphys.msq
-    - pymedphys.mudensity
     - pymedphys.plt
+    - pymedphys.tomo
     - pymedphys.trf
     - pymedphys.type
     - pymedphys.utilities
