@@ -1,8 +1,8 @@
 {% set name = "pymedphys" %}
-{% set version = "0.3.8" %}
+{% set version = "0.5.1" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "db5c06a5bf4aaf859adc20379269a04daeae1113bc251f722658caea4c8212fc" %}
+{% set hash_value = "a3c76b3e797f31078c6398d958e3c2ba0d56216654d90045fd5e5acdbeda78dd" %}
 
 package:
   name: '{{ name|lower }}'
@@ -24,16 +24,18 @@ requirements:
     - pip
   run:
     - python
-    - numpy
+    - numpy>=1.12
     - scipy
     - pandas
     - matplotlib
     - attrs
+    - psutil
     - pymssql
     - keyring
     - shapely
-    - pydicom
+    - pydicom>=1.0
     - python-dateutil
+    - notebook
 
 test:
   requires:
@@ -42,19 +44,6 @@ test:
     - py.test --pyargs pymedphys
   imports:
     - pymedphys
-    - pymedphys.clobbercheck
-    - pymedphys.dcm
-    - pymedphys.electronfactors
-    - pymedphys.film
-    - pymedphys.gamma
-    - pymedphys.geometry
-    - pymedphys.logfile
-    - pymedphys.msq
-    - pymedphys.mudensity
-    - pymedphys.plt
-    - pymedphys.trf
-    - pymedphys.type
-    - pymedphys.utilities
 
 about:
   home: https://pymedphys.com
