@@ -1,8 +1,8 @@
 {% set name = "pymedphys" %}
-{% set version = "0.5.1" %}
+{% set version = "0.6.0" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "a3c76b3e797f31078c6398d958e3c2ba0d56216654d90045fd5e5acdbeda78dd" %}
+{% set hash_value = "5f74ecc8be87977f9a91834b8bd8e68ad8b938933cca64c7d95b93daad8d489d" %}
 
 package:
   name: '{{ name|lower }}'
