@@ -38,10 +38,6 @@ requirements:
     - notebook
 
 test:
-  requires:
-    - pytest
-  commands:
-    - py.test --pyargs pymedphys
   imports:
     - pymedphys
 
