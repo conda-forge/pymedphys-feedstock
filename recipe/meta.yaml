@@ -38,7 +38,7 @@ requirements:
     - notebook
     - Pillow
     - xarray
-    - xlwings; platform_system != "Linux"
+
 
 test:
   imports:
