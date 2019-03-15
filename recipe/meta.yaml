@@ -36,6 +36,9 @@ requirements:
     - pydicom>=1.0
     - python-dateutil
     - notebook
+    - Pillow
+    - xarray
+    - xlwings; platform_system != "Linux"
 
 test:
   imports:
