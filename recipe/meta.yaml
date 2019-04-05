@@ -1,8 +1,8 @@
 {% set name = "pymedphys" %}
-{% set version = "0.6.0" %}
+{% set version = "0.7.2" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "5f74ecc8be87977f9a91834b8bd8e68ad8b938933cca64c7d95b93daad8d489d" %}
+{% set hash_value = "52e68e40cb2245e46ba45e3c420f25056abc410448266e5e8f94fb79e1dc293c" %}
 
 package:
   name: '{{ name|lower }}'
@@ -22,24 +22,22 @@ requirements:
   build:
     - python>=3.7
     - pip
-    - pytest-runner
   run:
-    - python>=3.7
-    - numpy>=1.12
-    - scipy
-    - pandas
-    - matplotlib
     - attrs
-    - psutil
-    - pymssql
     - keyring
-    - shapely
-    - pydicom>=1.0
-    - python-dateutil
+    - matplotlib
     - notebook
+    - numpy>=1.12
+    - pandas
     - Pillow
+    - psutil
+    - pydicom>=1.0
+    - pymssql
+    - python>=3.7
+    - python-dateutil
+    - scipy
+    - shapely
     - xarray
-
 
 test:
   imports:
