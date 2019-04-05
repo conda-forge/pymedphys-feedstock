@@ -20,12 +20,11 @@ build:
 
 requirements:
   build:
-    - python>=3.6
+    - python>=3.7
     - pip
     - pytest-runner
   run:
     - attrs
-    - dataclasses; python_version=="3.6"
     - keyring
     - matplotlib
     - notebook
@@ -35,12 +34,11 @@ requirements:
     - psutil
     - pydicom>=1.0
     - pymssql
-    - python>=3.6
+    - python>=3.7
     - python-dateutil
     - scipy
     - shapely
     - xarray
-    - xlwings; platform_system != "Linux"
 
 test:
   imports:
