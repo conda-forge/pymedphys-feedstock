@@ -1,8 +1,8 @@
 {% set name = "pymedphys" %}
-{% set version = "0.7.1" %}
+{% set version = "0.7.2" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "25912f34ada1dd404eb3809a0d3697c2b60dfecd6b4405019cc562d8ada3f8b5" %}
+{% set hash_value = "52e68e40cb2245e46ba45e3c420f25056abc410448266e5e8f94fb79e1dc293c" %}
 
 package:
   name: '{{ name|lower }}'
@@ -29,7 +29,7 @@ requirements:
     - keyring
     - matplotlib
     - notebook
-    - numpy <1.16, >=1.12
+    - numpy>=1.12
     - pandas
     - Pillow
     - psutil
