@@ -22,7 +22,6 @@ requirements:
   build:
     - python>=3.7
     - pip
-    - pytest-runner
   run:
     - attrs
     - keyring
