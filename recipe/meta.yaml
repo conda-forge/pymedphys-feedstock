@@ -1,45 +1,42 @@
 {% set name = "pymedphys" %}
 {% set version = "0.8.2" %}
-{% set file_ext = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "0b101e957e5a9e44124e58024a2800ea2a3b30617888799efb1d8c974f4937a8" %}
 
 package:
   name: '{{ name|lower }}'
   version: '{{ version }}'
 
 source:
-  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
-  '{{ hash_type }}': '{{ hash_value }}'
+  fn: '{{ name }}-{{ version }}.tar.gz'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 0b101e957e5a9e44124e58024a2800ea2a3b30617888799efb1d8c974f4937a8
 
 build:
   number: 0
   noarch: python
-  script: "python -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: "python -m pip install . -vvv"
   entry_points:
     - pymedphys = pymedphys.cli.main:pymedphys_cli
 
 requirements:
-  build:
-    - python>=3.7
+  host:
+    - python >=3.7
     - pip
   run:
-    - attrs
-    - keyring
-    - matplotlib
+    - jinja2
     - notebook
-    - numpy>=1.12
-    - pandas
-    - Pillow
-    - psutil
-    - pydicom>=1.0
-    - pymssql
-    - python>=3.7
-    - python-dateutil
-    - scipy
-    - shapely
-    - xarray
+    - pymedphys_analysis==0.8.1
+    - pymedphys_base==0.8.1
+    - pymedphys_coordsandscales==0.8.1
+    - pymedphys_databases==0.8.1
+    - pymedphys_dicom==0.8.1
+    - pymedphys_electronfactors==0.8.1
+    - pymedphys_fileformats==0.8.1
+    - pymedphys_gamma==0.8.1
+    - pymedphys_labs==0.8.1
+    - pymedphys_logfiles==0.8.1
+    - pymedphys_mudensity==0.8.1
+    - pymedphys_utilities==0.8.1
+    - pymedphys_xlwings==0.8.1
 
 test:
   imports:
@@ -55,3 +52,4 @@ about:
 extra:
   recipe-maintainers:
     - SimonBiggs
+    - Centrus007
