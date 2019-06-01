@@ -1,8 +1,8 @@
 {% set name = "pymedphys" %}
-{% set version = "0.7.2" %}
+{% set version = "0.8.2" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "52e68e40cb2245e46ba45e3c420f25056abc410448266e5e8f94fb79e1dc293c" %}
+{% set hash_value = "0b101e957e5a9e44124e58024a2800ea2a3b30617888799efb1d8c974f4937a8" %}
 
 package:
   name: '{{ name|lower }}'
@@ -14,7 +14,7 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: "python -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   entry_points:
