@@ -25,21 +25,21 @@ requirements:
     - python>=3.7
     - pip
   run:
-    - attrs
-    - keyring
-    - matplotlib
+    - jinja2
     - notebook
-    - numpy>=1.12
-    - pandas
-    - Pillow
-    - psutil
-    - pydicom>=1.0
-    - pymssql
-    - python>=3.7
-    - python-dateutil
-    - scipy
-    - shapely
-    - xarray
+    - pymedphys_analysis==0.8.1
+    - pymedphys_base==0.8.1
+    - pymedphys_coordsandscales==0.8.1
+    - pymedphys_databases==0.8.1
+    - pymedphys_dicom==0.8.1
+    - pymedphys_electronfactors==0.8.1
+    - pymedphys_fileformats==0.8.1
+    - pymedphys_gamma==0.8.1
+    - pymedphys_labs==0.8.1
+    - pymedphys_logfiles==0.8.1
+    - pymedphys_mudensity==0.8.1
+    - pymedphys_utilities==0.8.1
+    - pymedphys_xlwings==0.8.1
 
 test:
   imports:
@@ -55,3 +55,4 @@ about:
 extra:
   recipe-maintainers:
     - SimonBiggs
+    - Centrus007
