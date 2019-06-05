@@ -6,21 +6,22 @@ package:
   version: '{{ version }}'
 
 source:
-  - url: https://github.com/pymedphys/pymedphys/archive/v{{ version }}.tar.gz
-    sha256: 558100b1bb0d290c7be379942c429aba3eeff3d0d62bae2822100b5014b0d7c4
+  - url: https://github.com/pymedphys/pymedphys/releases/download/v{{ version }}/v{{ version }}.tar.gz
+    sha256: 20a5158f605ae9599c94efbb6c30a9be9ba8a3bb99c9079c7ba22b8483d0abd5
 
 build:
   number: 0
   noarch: python
   entry_points:
     - pymedphys = pymedphys.cli.main:pymedphys_cli
-  script: "python -m pip install ./packages/pymedphys --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: "export SUBPACKAGE=pymedphys && yarn conda-forge"
 
 
 requirements:
   host:
     - python >=3.7
     - pip
+    - yarn
   run:
     - python >=3.7
     - {{ pin_subpackage("pymedphys_analysis", exact=True) }}
@@ -60,7 +61,7 @@ outputs:
   - name: pymedphys_analysis
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_analysis --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_analysis && yarn conda-forge"
     requirements:
       host:
         - python
@@ -77,7 +78,7 @@ outputs:
   - name: pymedphys_base
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_base --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_base && yarn conda-forge"
     requirements:
       host:
         - python
@@ -90,7 +91,7 @@ outputs:
   - name: pymedphys_coordsandscales
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_coordsandscales --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_coordsandscales && yarn conda-forge"
     requirements:
       host:
         - python
@@ -103,7 +104,7 @@ outputs:
   - name: pymedphys_databases
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_databases --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_databases && yarn conda-forge"
     requirements:
       host:
         - python
@@ -124,7 +125,7 @@ outputs:
   - name: pymedphys_dicom
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_dicom --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_dicom && yarn conda-forge"
     requirements:
       host:
         - python
@@ -142,7 +143,7 @@ outputs:
   - name: pymedphys_electronfactors
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_electronfactors --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_electronfactors && yarn conda-forge"
     requirements:
       host:
         - python
@@ -158,7 +159,7 @@ outputs:
   - name: pymedphys_fileformats
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_fileformats --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_fileformats && yarn conda-forge"
     requirements:
       host:
         - python
@@ -173,7 +174,7 @@ outputs:
   - name: pymedphys_gamma
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_gamma --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_gamma && yarn conda-forge"
     requirements:
       host:
         - python
@@ -187,7 +188,7 @@ outputs:
   - name: pymedphys_labs
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_labs --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_labs && yarn conda-forge"
     requirements:
       host:
         - python
@@ -205,7 +206,7 @@ outputs:
   - name: pymedphys_logfiles
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_logfiles --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_logfiles && yarn conda-forge"
     requirements:
       host:
         - python
@@ -226,7 +227,7 @@ outputs:
   - name: pymedphys_mudensity
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_mudensity --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_mudensity && yarn conda-forge"
     requirements:
       host:
         - python
@@ -242,7 +243,7 @@ outputs:
   - name: pymedphys_utilities
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_utilities --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_utilities && yarn conda-forge"
     requirements:
       host:
         - python
@@ -255,7 +256,7 @@ outputs:
   - name: pymedphys_xlwings
     build:
       script: 
-        - "python -m pip install ./packages/pymedphys_xlwings --no-deps --ignore-installed --no-cache-dir -vvv"
+        - "export SUBPACKAGE=pymedphys_xlwings && yarn conda-forge"
     requirements:
       host:
         - python
