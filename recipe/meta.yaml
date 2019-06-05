@@ -33,7 +33,10 @@ source:
 build:
   number: 0
   noarch: python
-  script: "python -m pip install ./pymedphys -vvv"
+  script: 
+    {% for package in packages %}
+    - python -m pip install ./{{ name }}{{ package[0] }} -vvv
+    {% endfor %}
   entry_points:
     - pymedphys = pymedphys.cli.main:pymedphys_cli
 
@@ -83,25 +86,16 @@ outputs:
       - pydicom
       - pymedphys_dicom =={{ version }}
       - scipy
-    script: "python -m pip install ./pymedphys_analysis -vvv"
-    files:
-      - pymedphys_analysis
 
   - name: pymedphys_base
     requirements:
     - python >=3.7
     - numpy >=1.12
-    script: "python -m pip install ./pymedphys_base -vvv"
-    files:
-      - pymedphys_base
 
   - name: pymedphys_coordsandscales
     requirements:
       - python >=3.7
       - numpy >=1.12
-    script: "python -m pip install ./pymedphys_coordsandscales -vvv"
-    files:
-      - pymedphys_coordsandscales
 
   - name: pymedphys_databases
     requirements:
@@ -115,9 +109,6 @@ outputs:
       - pymedphys_mudensity =={{ version }}
       - pymedphys_utilities =={{ version }}
       - pymssql
-    script: "python -m pip install ./pymedphys_databases -vvv"
-    files:
-      - pymedphys_databases
 
   - name: pymedphys_dicom
     requirements:
@@ -128,9 +119,6 @@ outputs:
       - pydicom
       - pymedphys_base =={{ version }}
       - pymedphys_utilities =={{ version }}
-    script: "python -m pip install ./pymedphys_dicom -vvv"
-    files:
-      - pymedphys_dicom
 
   - name: pymedphys_electronfactors
     requirements:
@@ -139,9 +127,6 @@ outputs:
       - numpy >=1.12
       - scipy
       - shapely
-    script: "python -m pip install ./pymedphys_electronfactors -vvv"
-    files:
-      - pymedphys_electronfactors
 
   - name: pymedphys_fileformats
     requirements:
@@ -149,18 +134,12 @@ outputs:
       - numpy >=1.12
       - pandas
       - pymedphys_base =={{ version }}
-    script: "python -m pip install ./pymedphys_fileformats -vvv"
-    files:
-      - pymedphys_fileformats
 
   - name: pymedphys_gamma
     requirements:
       - python >=3.7
       - numpy >=1.12
       - pymedphys_dicom =={{ version }}
-    script: "python -m pip install ./pymedphys_gamma -vvv"
-    files:
-      - pymedphys_gamma
 
   - name: pymedphys_labs
     requirements:
@@ -171,9 +150,6 @@ outputs:
       - pymedphys_utilities =={{ version }}
       - scipy
       - xarray
-    script: "python -m pip install ./pymedphys_labs -vvv"
-    files:
-      - pymedphys_labs
 
   - name: pymedphys_logfiles
     requirements:
@@ -187,9 +163,6 @@ outputs:
       - pymedphys_mudensity =={{ version }}
       - pymedphys_utilities =={{ version }}
       - python-dateutil
-    script: "python -m pip install ./pymedphys_logfiles -vvv"
-    files:
-      - pymedphys_logfiles
 
   - name: pymedphys_mudensity
     requirements:
@@ -198,17 +171,11 @@ outputs:
       - numpy >=1.12
       - pymedphys_base =={{ version }}
       - pymedphys_utilities =={{ version }}
-    script: "python -m pip install ./pymedphys_mudensity -vvv"
-    files:
-      - pymedphys_mudensity
 
   - name: pymedphys_utilities
     requirements:
       - python >=3.7
       - numpy >=1.12
-    script: "python -m pip install ./pymedphys_utilities -vvv"
-    files:
-      - pymedphys_utilities
 
   - name: pymedphys_xlwings
     requirements:
@@ -219,10 +186,6 @@ outputs:
       - pymedphys_fileformats =={{ version }}
       - pymedphys_utilities =={{ version }}
       - scipy
-    script: "python -m pip install ./pymedphys_xlwings -vvv"
-    files:
-      - pymedphys_xlwings
-
 
 about:
   home: https://pymedphys.com
