@@ -86,16 +86,25 @@ outputs:
       - pydicom
       - pymedphys_dicom =={{ version }}
       - scipy
+    files:
+      - Lib/site-packages/pymedphys_analysis
+      - Lib/site-packages/pymedphys_analysis-{{ version }}.dist-info
 
   - name: pymedphys_base
     requirements:
-    - python >=3.7
-    - numpy >=1.12
+      - python >=3.7
+      - numpy >=1.12
+    files:
+      - Lib/site-packages/pymedphys_base
+      - Lib/site-packages/pymedphys_base-{{ version }}.dist-info
 
   - name: pymedphys_coordsandscales
     requirements:
       - python >=3.7
       - numpy >=1.12
+    files:
+      - Lib/site-packages/pymedphys_coordsandscales
+      - Lib/site-packages/pymedphys_coordsandscales-{{ version }}.dist-info
 
   - name: pymedphys_databases
     requirements:
@@ -109,6 +118,9 @@ outputs:
       - pymedphys_mudensity =={{ version }}
       - pymedphys_utilities =={{ version }}
       - pymssql
+    files:
+      - Lib/site-packages/pymedphys_databases
+      - Lib/site-packages/pymedphys_databases-{{ version }}.dist-info
 
   - name: pymedphys_dicom
     requirements:
@@ -119,6 +131,9 @@ outputs:
       - pydicom
       - pymedphys_base =={{ version }}
       - pymedphys_utilities =={{ version }}
+    files:
+      - Lib/site-packages/pymedphys_dicom
+      - Lib/site-packages/pymedphys_dicom-{{ version }}.dist-info
 
   - name: pymedphys_electronfactors
     requirements:
@@ -127,6 +142,9 @@ outputs:
       - numpy >=1.12
       - scipy
       - shapely
+    files:
+      - Lib/site-packages/pymedphys_electronfactors
+      - Lib/site-packages/pymedphys_electronfactors-{{ version }}.dist-info
 
   - name: pymedphys_fileformats
     requirements:
@@ -134,12 +152,18 @@ outputs:
       - numpy >=1.12
       - pandas
       - pymedphys_base =={{ version }}
+    files:
+      - Lib/site-packages/pymedphys_fileformats
+      - Lib/site-packages/pymedphys_fileformats-{{ version }}.dist-info
 
   - name: pymedphys_gamma
     requirements:
       - python >=3.7
       - numpy >=1.12
       - pymedphys_dicom =={{ version }}
+    files:
+      - Lib/site-packages/pymedphys_gamma
+      - Lib/site-packages/pymedphys_gamma-{{ version }}.dist-info
 
   - name: pymedphys_labs
     requirements:
@@ -150,6 +174,9 @@ outputs:
       - pymedphys_utilities =={{ version }}
       - scipy
       - xarray
+    files:
+      - Lib/site-packages/pymedphys_labs
+      - Lib/site-packages/pymedphys_labs-{{ version }}.dist-info
 
   - name: pymedphys_logfiles
     requirements:
@@ -163,6 +190,9 @@ outputs:
       - pymedphys_mudensity =={{ version }}
       - pymedphys_utilities =={{ version }}
       - python-dateutil
+    files:
+      - Lib/site-packages/pymedphys_logfiles
+      - Lib/site-packages/pymedphys_logfiles-{{ version }}.dist-info
 
   - name: pymedphys_mudensity
     requirements:
@@ -171,11 +201,17 @@ outputs:
       - numpy >=1.12
       - pymedphys_base =={{ version }}
       - pymedphys_utilities =={{ version }}
+    files:
+      - Lib/site-packages/pymedphys_mudensity
+      - Lib/site-packages/pymedphys_mudensity-{{ version }}.dist-info
 
   - name: pymedphys_utilities
     requirements:
       - python >=3.7
       - numpy >=1.12
+    files:
+      - Lib/site-packages/pymedphys_utilities
+      - Lib/site-packages/pymedphys_utilities-{{ version }}.dist-info
 
   - name: pymedphys_xlwings
     requirements:
@@ -186,6 +222,9 @@ outputs:
       - pymedphys_fileformats =={{ version }}
       - pymedphys_utilities =={{ version }}
       - scipy
+    files:
+      - Lib/site-packages/pymedphys_xlwings
+      - Lib/site-packages/pymedphys_xlwings-{{ version }}.dist-info
 
 about:
   home: https://pymedphys.com
