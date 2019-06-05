@@ -3,7 +3,7 @@
 {% set build_number = 0 %}
 
 package:
-  name: '{{ name|lower }}'
+  name: pymedphys-split
   version: '{{ version }}'
 
 source:
