@@ -34,6 +34,7 @@ build:
   noarch: python
   entry_points:
     - pymedphys = pymedphys.cli.main:pymedphys_cli
+  script: "python -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
   host:
