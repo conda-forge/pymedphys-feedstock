@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/pymedphys/pymedphys/releases/download/v{{ version }}/v{{ version }}.tar.gz
-    sha256: 20a5158f605ae9599c94efbb6c30a9be9ba8a3bb99c9079c7ba22b8483d0abd5
+    sha256: d8632bb282ae1df2f6879c808be1d2894981f9f4e1ae0624149faf39659e9e5b
 
 build:
   number: 0
