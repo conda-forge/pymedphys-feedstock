@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/pymedphys/pymedphys/releases/download/v{{ version }}/v{{ version }}.tar.gz
-    sha256: d8632bb282ae1df2f6879c808be1d2894981f9f4e1ae0624149faf39659e9e5b
+    sha256: 2cd3f6c09c861e9734f0048c8dbe309a482383470451840c793c1ddf824ede3d
 
 build:
   number: 0
@@ -288,7 +288,7 @@ about:
   home: https://pymedphys.com
   license: GNU Affero General Public v3 or later (AGPL-3.0+)
   license_family: AGPL
-  license_file: pymedphys/LICENSE-AGPL-3.0-or-later
+  license_file: LICENSE-AGPL-3.0-or-later
   summary: Medical Physics Python toolbox
 
 extra:
