@@ -230,7 +230,7 @@ about:
   home: https://pymedphys.com
   license: GNU Affero General Public v3 or later (AGPL-3.0+)
   license_family: AGPL
-  license_file: LICENSE-AGPL-3.0-or-later
+  license_file: pymedphys/LICENSE-AGPL-3.0-or-later
   summary: Medical Physics Python toolbox
 
 extra:
