@@ -1,14 +1,28 @@
 {% set name = "pymedphys" %}
 {% set version = "0.8.5" %}
 
+{% set subpackages = [
+  ("", 23979b662caa7d59936c94883777e73588465dec9aafd4683135f5bd5f86510e),
+  ("_analysis", 89795f630797fcec712e23745df02e30d7479d7ff9179ab454ef5c29e4d7b393)
+] %}
+
 package:
   name: '{{ name|lower }}'
   version: '{{ version }}'
 
 source:
-  fn: '{{ name }}-{{ version }}.tar.gz'
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 23979b662caa7d59936c94883777e73588465dec9aafd4683135f5bd5f86510e
+  - fn: '{{ name }}-{{ version }}.tar.gz'
+    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: 23979b662caa7d59936c94883777e73588465dec9aafd4683135f5bd5f86510e
+  - fn: '{{ name }}_analysis-{{ version }}.tar.gz'
+    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: 89795f630797fcec712e23745df02e30d7479d7ff9179ab454ef5c29e4d7b393
+  - fn: '{{ name }}_base-{{ version }}.tar.gz'
+    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: 9917439b2791a594625f2536d85f5889defb3572964e46cd86acd712c191716f
+  - fn: '{{ name }}_base-{{ version }}.tar.gz'
+    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: 9917439b2791a594625f2536d85f5889defb3572964e46cd86acd712c191716f
 
 build:
   number: 0
@@ -22,20 +36,26 @@ requirements:
     - python >=3.7
     - pip
   run:
-    - python >=3.7
-    - pymedphys_analysis =={{ version }}
-    - pymedphys_base =={{ version }}
-    - pymedphys_coordsandscales =={{ version }}
-    - pymedphys_databases =={{ version }}
-    - pymedphys_dicom =={{ version }}
-    - pymedphys_electronfactors =={{ version }}
-    - pymedphys_fileformats =={{ version }}
-    - pymedphys_gamma =={{ version }}
-    - pymedphys_labs =={{ version }}
-    - pymedphys_logfiles =={{ version }}
-    - pymedphys_mudensity =={{ version }}
-    - pymedphys_utilities =={{ version }}
-    - pymedphys_xlwings =={{ version }}
+    - pymedphys =={{ version }}
+
+outputs:
+  - name: pymedphys
+    requirements:
+      - python >=3.7
+      - pymedphys_analysis =={{ version }}
+      - pymedphys_base =={{ version }}
+      - pymedphys_coordsandscales =={{ version }}
+      - pymedphys_databases =={{ version }}
+      - pymedphys_dicom =={{ version }}
+      - pymedphys_electronfactors =={{ version }}
+      - pymedphys_fileformats =={{ version }}
+      - pymedphys_gamma =={{ version }}
+      - pymedphys_labs =={{ version }}
+      - pymedphys_logfiles =={{ version }}
+      - pymedphys_mudensity =={{ version }}
+      - pymedphys_utilities =={{ version }}
+      - pymedphys_xlwings =={{ version }}
+  - name: 
 
 test:
   imports:
