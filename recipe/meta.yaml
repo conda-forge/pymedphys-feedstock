@@ -56,8 +56,6 @@ requirements:
     - pymedphys_mudensity =={{ version }}
     - pymedphys_utilities =={{ version }}
     - pymedphys_xlwings =={{ version }}
-  files:
-    - pymedphys
 
 test:
   imports:
