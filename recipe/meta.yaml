@@ -10,31 +10,6 @@ source:
   - url: https://github.com/pymedphys/pymedphys/releases/download/v{{ version }}/v{{ version }}.tar.gz
     sha256: 2cd3f6c09c861e9734f0048c8dbe309a482383470451840c793c1ddf824ede3d
 
-build:
-  number: 0
-  noarch: python
-  entry_points:
-    - pymedphys = pymedphys.cli.main:pymedphys_cli
-  script: "export SUBPACKAGE=pymedphys && yarn conda-forge"
-
-
-test:
-  imports:
-    - pymedphys
-    - pymedphys.coordinates
-    - pymedphys.dicom
-    - pymedphys.electronfactors
-    - pymedphys.film
-    - pymedphys.gamma
-    - pymedphys.geometry
-    - pymedphys.logfile
-    - pymedphys.mephysto
-    - pymedphys.msq
-    - pymedphys.mudensity
-    - pymedphys.plt
-    - pymedphys.trf
-    - pymedphys.utilities
-
 
 outputs:
   - name: pymedphys
@@ -65,6 +40,22 @@ outputs:
         - {{ pin_subpackage("pymedphys_mudensity", exact=True) }}
         - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
         - {{ pin_subpackage("pymedphys_xlwings", exact=True) }}
+    test:
+      imports:
+        - pymedphys
+        - pymedphys.coordinates
+        - pymedphys.dicom
+        - pymedphys.electronfactors
+        - pymedphys.film
+        - pymedphys.gamma
+        - pymedphys.geometry
+        - pymedphys.logfile
+        - pymedphys.mephysto
+        - pymedphys.msq
+        - pymedphys.mudensity
+        - pymedphys.plt
+        - pymedphys.trf
+        - pymedphys.utilities
 
 
   - name: pymedphys_analysis
