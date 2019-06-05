@@ -1,57 +1,366 @@
 {% set name = "pymedphys" %}
-{% set version = "0.7.2" %}
-{% set file_ext = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "52e68e40cb2245e46ba45e3c420f25056abc410448266e5e8f94fb79e1dc293c" %}
+{% set version = "0.8.5" %}
+{% set build_number = 0 %}
 
 package:
-  name: '{{ name|lower }}'
+  name: pymedphys-split
   version: '{{ version }}'
 
 source:
-  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
-  '{{ hash_type }}': '{{ hash_value }}'
+  - url: https://github.com/pymedphys/pymedphys/releases/download/v{{ version }}/v{{ version }}.tar.gz
+    sha256: 2cd3f6c09c861e9734f0048c8dbe309a482383470451840c793c1ddf824ede3d
+
 
 build:
-  number: 1
-  noarch: python
-  script: "python -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
-  entry_points:
-    - pymedphys = pymedphys.cli.main:pymedphys_cli
+  number: {{ build_number }}
 
-requirements:
-  build:
-    - python>=3.7
-    - pip
-  run:
-    - attrs
-    - keyring
-    - matplotlib
-    - notebook
-    - numpy>=1.12
-    - pandas
-    - Pillow
-    - psutil
-    - pydicom>=1.0
-    - pymssql
-    - python>=3.7
-    - python-dateutil
-    - scipy
-    - shapely
-    - xarray
 
-test:
-  imports:
-    - pymedphys
+outputs:
+  - name: pymedphys
+    build:
+      number: {{ build_number }}
+      noarch: python
+      entry_points:
+        - pymedphys = pymedphys.cli.main:pymedphys_cli
+      script: 
+        - "export SUBPACKAGE=pymedphys && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - {{ pin_subpackage("pymedphys_analysis", exact=True) }}
+        - {{ pin_subpackage("pymedphys_base", exact=True) }}
+        - {{ pin_subpackage("pymedphys_coordsandscales", exact=True) }}
+        - {{ pin_subpackage("pymedphys_databases", exact=True) }}
+        - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
+        - {{ pin_subpackage("pymedphys_electronfactors", exact=True) }}
+        - {{ pin_subpackage("pymedphys_fileformats", exact=True) }}
+        - {{ pin_subpackage("pymedphys_gamma", exact=True) }}
+        - {{ pin_subpackage("pymedphys_labs", exact=True) }}
+        - {{ pin_subpackage("pymedphys_logfiles", exact=True) }}
+        - {{ pin_subpackage("pymedphys_mudensity", exact=True) }}
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+        - {{ pin_subpackage("pymedphys_xlwings", exact=True) }}
+    test:
+      imports:
+        - pymedphys
+        - pymedphys.coordinates
+        - pymedphys.dicom
+        - pymedphys.electronfactors
+        - pymedphys.film
+        - pymedphys.gamma
+        - pymedphys.geometry
+        - pymedphys.logfile
+        - pymedphys.mephysto
+        - pymedphys.msq
+        - pymedphys.mudensity
+        - pymedphys.plt
+        - pymedphys.trf
+        - pymedphys.utilities
+
+
+  - name: pymedphys_analysis
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_analysis && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - matplotlib
+        - numpy >=1.12
+        - pydicom
+        - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
+        - scipy
+    test:
+      imports:
+        - pymedphys_analysis
+
+
+  - name: pymedphys_base
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_base && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - numpy >=1.12
+    test:
+      imports:
+        - pymedphys_base
+
+
+  - name: pymedphys_coordsandscales
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_coordsandscales && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - numpy >=1.12
+    test:
+      imports:
+        - pymedphys_coordsandscales
+
+
+  - name: pymedphys_databases
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_databases && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - attrs
+        - keyring
+        - numpy >=1.12
+        - pandas
+        - {{ pin_subpackage("pymedphys_base", exact=True) }}
+        - {{ pin_subpackage("pymedphys_fileformats", exact=True) }}
+        - {{ pin_subpackage("pymedphys_mudensity", exact=True) }}
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+        - pymssql
+    test:
+      imports:
+        - pymedphys_databases
+
+
+  - name: pymedphys_dicom
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_dicom && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - matplotlib
+        - numpy >=1.12
+        - packaging
+        - pydicom
+        - {{ pin_subpackage("pymedphys_base", exact=True) }}
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+    test:
+      imports:
+        - pymedphys_dicom
+
+
+  - name: pymedphys_electronfactors
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_electronfactors && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - matplotlib
+        - numpy >=1.12
+        - scipy
+        - shapely
+    test:
+      imports:
+        - pymedphys_electronfactors
+
+
+  - name: pymedphys_fileformats
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_fileformats && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - numpy >=1.12
+        - pandas
+        - {{ pin_subpackage("pymedphys_base", exact=True) }}
+    test:
+      imports:
+        - pymedphys_fileformats
+
+
+  - name: pymedphys_gamma
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_gamma && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - numpy >=1.12
+        - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
+    test:
+      imports:
+        - pymedphys_gamma
+
+
+  - name: pymedphys_labs
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_labs && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - Pillow
+        - matplotlib
+        - numpy >=1.12
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+        - scipy
+        - xarray
+    test:
+      imports:
+        - pymedphys_labs
+
+
+  - name: pymedphys_logfiles
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_logfiles && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - attrs
+        - matplotlib
+        - numpy >=1.12
+        - pandas
+        - {{ pin_subpackage("pymedphys_databases", exact=True) }}
+        - {{ pin_subpackage("pymedphys_fileformats", exact=True) }}
+        - {{ pin_subpackage("pymedphys_mudensity", exact=True) }}
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+        - python-dateutil
+    test:
+      imports:
+        - pymedphys_logfiles
+
+
+  - name: pymedphys_mudensity
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_mudensity && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - matplotlib
+        - numpy >=1.12
+        - {{ pin_subpackage("pymedphys_base", exact=True) }}
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+    test:
+      imports:
+        - pymedphys_mudensity
+
+
+  - name: pymedphys_utilities
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_utilities && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - numpy >=1.12
+    test:
+      imports:
+        - pymedphys_utilities
+
+
+  - name: pymedphys_xlwings
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_xlwings && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - numpy >=1.12
+        - pydicom
+        - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
+        - {{ pin_subpackage("pymedphys_fileformats", exact=True) }}
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+        - scipy
+    test:
+      imports:
+        - pymedphys_xlwings
+
 
 about:
   home: https://pymedphys.com
   license: GNU Affero General Public v3 or later (AGPL-3.0+)
   license_family: AGPL
-  license_file: LICENSE
+  license_file: LICENSE-AGPL-3.0-or-later
   summary: Medical Physics Python toolbox
 
 extra:
   recipe-maintainers:
     - SimonBiggs
+    - Centrus007
