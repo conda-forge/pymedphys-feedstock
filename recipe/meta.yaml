@@ -41,7 +41,20 @@ requirements:
     - python >=3.7
     - pip
   run:
-    - pymedphys =={{ version }}
+    - python >=3.7
+    - pymedphys_analysis =={{ version }}
+    - pymedphys_base =={{ version }}
+    - pymedphys_coordsandscales =={{ version }}
+    - pymedphys_databases =={{ version }}
+    - pymedphys_dicom =={{ version }}
+    - pymedphys_electronfactors =={{ version }}
+    - pymedphys_fileformats =={{ version }}
+    - pymedphys_gamma =={{ version }}
+    - pymedphys_labs =={{ version }}
+    - pymedphys_logfiles =={{ version }}
+    - pymedphys_mudensity =={{ version }}
+    - pymedphys_utilities =={{ version }}
+    - pymedphys_xlwings =={{ version }}
 
 test:
   imports:
