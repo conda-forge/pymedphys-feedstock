@@ -23,19 +23,20 @@ requirements:
     - pip
   run:
     - python >=3.7
-    - pymedphys_analysis =={{ version }}
-    - pymedphys_base =={{ version }}
-    - pymedphys_coordsandscales =={{ version }}
-    - pymedphys_databases =={{ version }}
-    - pymedphys_dicom =={{ version }}
-    - pymedphys_electronfactors =={{ version }}
-    - pymedphys_fileformats =={{ version }}
-    - pymedphys_gamma =={{ version }}
-    - pymedphys_labs =={{ version }}
-    - pymedphys_logfiles =={{ version }}
-    - pymedphys_mudensity =={{ version }}
-    - pymedphys_utilities =={{ version }}
-    - pymedphys_xlwings =={{ version }}
+    - {{ pin_subpackage("pymedphys_analysis", exact=True) }}
+    - {{ pin_subpackage("pymedphys_base", exact=True) }}
+    - {{ pin_subpackage("pymedphys_coordsandscales", exact=True) }}
+    - {{ pin_subpackage("pymedphys_databases", exact=True) }}
+    - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
+    - {{ pin_subpackage("pymedphys_electronfactors", exact=True) }}
+    - {{ pin_subpackage("pymedphys_fileformats", exact=True) }}
+    - {{ pin_subpackage("pymedphys_gamma", exact=True) }}
+    - {{ pin_subpackage("pymedphys_labs", exact=True) }}
+    - {{ pin_subpackage("pymedphys_logfiles", exact=True) }}
+    - {{ pin_subpackage("pymedphys_mudensity", exact=True) }}
+    - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+    - {{ pin_subpackage("pymedphys_xlwings", exact=True) }}
+
 
 test:
   imports:
@@ -267,7 +268,7 @@ outputs:
         - {{ pin_subpackage("pymedphys_fileformats", exact=True) }}
         - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
         - scipy
-        
+
 
 about:
   home: https://pymedphys.com
