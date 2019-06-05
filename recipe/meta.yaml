@@ -1,5 +1,6 @@
 {% set name = "pymedphys" %}
 {% set version = "0.8.5" %}
+{% set build_number = 0 %}
 
 package:
   name: '{{ name|lower }}'
@@ -15,28 +16,6 @@ build:
   entry_points:
     - pymedphys = pymedphys.cli.main:pymedphys_cli
   script: "export SUBPACKAGE=pymedphys && yarn conda-forge"
-
-
-requirements:
-  host:
-    - python >=3.7
-    - pip
-    - yarn
-  run:
-    - python >=3.7
-    - {{ pin_subpackage("pymedphys_analysis", exact=True) }}
-    - {{ pin_subpackage("pymedphys_base", exact=True) }}
-    - {{ pin_subpackage("pymedphys_coordsandscales", exact=True) }}
-    - {{ pin_subpackage("pymedphys_databases", exact=True) }}
-    - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
-    - {{ pin_subpackage("pymedphys_electronfactors", exact=True) }}
-    - {{ pin_subpackage("pymedphys_fileformats", exact=True) }}
-    - {{ pin_subpackage("pymedphys_gamma", exact=True) }}
-    - {{ pin_subpackage("pymedphys_labs", exact=True) }}
-    - {{ pin_subpackage("pymedphys_logfiles", exact=True) }}
-    - {{ pin_subpackage("pymedphys_mudensity", exact=True) }}
-    - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
-    - {{ pin_subpackage("pymedphys_xlwings", exact=True) }}
 
 
 test:
@@ -58,8 +37,40 @@ test:
 
 
 outputs:
+  - name: pymedphys
+    build:
+      number: {{ build_number }}
+      noarch: python
+      entry_points:
+        - pymedphys = pymedphys.cli.main:pymedphys_cli
+      script: 
+        - "export SUBPACKAGE=pymedphys && yarn conda-forge"
+    requirements:
+      host:
+        - python
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - {{ pin_subpackage("pymedphys_analysis", exact=True) }}
+        - {{ pin_subpackage("pymedphys_base", exact=True) }}
+        - {{ pin_subpackage("pymedphys_coordsandscales", exact=True) }}
+        - {{ pin_subpackage("pymedphys_databases", exact=True) }}
+        - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
+        - {{ pin_subpackage("pymedphys_electronfactors", exact=True) }}
+        - {{ pin_subpackage("pymedphys_fileformats", exact=True) }}
+        - {{ pin_subpackage("pymedphys_gamma", exact=True) }}
+        - {{ pin_subpackage("pymedphys_labs", exact=True) }}
+        - {{ pin_subpackage("pymedphys_logfiles", exact=True) }}
+        - {{ pin_subpackage("pymedphys_mudensity", exact=True) }}
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+        - {{ pin_subpackage("pymedphys_xlwings", exact=True) }}
+
+
   - name: pymedphys_analysis
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_analysis && yarn conda-forge"
     requirements:
@@ -78,6 +89,8 @@ outputs:
 
   - name: pymedphys_base
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_base && yarn conda-forge"
     requirements:
@@ -92,6 +105,8 @@ outputs:
 
   - name: pymedphys_coordsandscales
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_coordsandscales && yarn conda-forge"
     requirements:
@@ -106,6 +121,8 @@ outputs:
 
   - name: pymedphys_databases
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_databases && yarn conda-forge"
     requirements:
@@ -128,6 +145,8 @@ outputs:
 
   - name: pymedphys_dicom
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_dicom && yarn conda-forge"
     requirements:
@@ -147,6 +166,8 @@ outputs:
 
   - name: pymedphys_electronfactors
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_electronfactors && yarn conda-forge"
     requirements:
@@ -164,6 +185,8 @@ outputs:
 
   - name: pymedphys_fileformats
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_fileformats && yarn conda-forge"
     requirements:
@@ -180,6 +203,8 @@ outputs:
 
   - name: pymedphys_gamma
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_gamma && yarn conda-forge"
     requirements:
@@ -195,6 +220,8 @@ outputs:
 
   - name: pymedphys_labs
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_labs && yarn conda-forge"
     requirements:
@@ -214,6 +241,8 @@ outputs:
 
   - name: pymedphys_logfiles
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_logfiles && yarn conda-forge"
     requirements:
@@ -236,6 +265,8 @@ outputs:
 
   - name: pymedphys_mudensity
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_mudensity && yarn conda-forge"
     requirements:
@@ -253,6 +284,8 @@ outputs:
 
   - name: pymedphys_utilities
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_utilities && yarn conda-forge"
     requirements:
@@ -267,6 +300,8 @@ outputs:
 
   - name: pymedphys_xlwings
     build:
+      number: {{ build_number }}
+      noarch: python
       script: 
         - "export SUBPACKAGE=pymedphys_xlwings && yarn conda-forge"
     requirements:
