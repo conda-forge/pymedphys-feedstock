@@ -33,10 +33,6 @@ source:
 build:
   number: 0
   noarch: python
-  script: 
-    {% for package in packages %}
-    - python -m pip install ./{{ name }}{{ package[0] }} -vvv
-    {% endfor %}
   entry_points:
     - pymedphys = pymedphys.cli.main:pymedphys_cli
 
@@ -79,16 +75,20 @@ test:
 
 outputs:
   - name: pymedphys_analysis
+    build:
+      script: 
+        - python -m pip install ./pymedphys_analysis -vvv
     requirements:
-      - python >=3.7
-      - matplotlib
-      - numpy >=1.12
-      - pydicom
-      - pymedphys_dicom =={{ version }}
-      - scipy
-    files:
-      - Lib/site-packages/pymedphys_analysis
-      - Lib/site-packages/pymedphys_analysis-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - matplotlib
+        - numpy >=1.12
+        - pydicom
+        - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
+        - scipy
 
   - name: pymedphys_base
     requirements:
