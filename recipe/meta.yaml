@@ -46,6 +46,19 @@ requirements:
 test:
   imports:
     - pymedphys
+    - pymedphys.coordinates
+    - pymedphys.dicom
+    - pymedphys.electronfactors
+    - pymedphys.film
+    - pymedphys.gamma
+    - pymedphys.geometry
+    - pymedphys.logfile
+    - pymedphys.mephysto
+    - pymedphys.msq
+    - pymedphys.mudensity
+    - pymedphys.plt
+    - pymedphys.trf
+    - pymedphys.utilities
 
 outputs:
   - name: pymedphys
@@ -65,11 +78,121 @@ outputs:
       - pymedphys_utilities =={{ version }}
       - pymedphys_xlwings =={{ version }}
 
+  - name: pymedphys_analysis
+    requirements:
+      - python >=3.7
+      - matplotlib
+      - numpy >=1.12
+      - pydicom
+      - pymedphys_dicom =={{ version }}
+      - scipy
+
+  - name: pymedphys_base
+    requirements:
+    - python >=3.7
+    - numpy >=1.12
+
+  - name: pymedphys_coordsandscales
+    requirements:
+      - python >=3.7
+      - numpy >=1.12
+
+  - name: pymedphys_databases
+    requirements:
+      - python >=3.7
+      - attrs
+      - keyring
+      - numpy >=1.12
+      - pandas
+      - pymedphys_base =={{ version }}
+      - pymedphys_fileformats =={{ version }}
+      - pymedphys_mudensity =={{ version }}
+      - pymedphys_utilities =={{ version }}
+      - pymssql
+
+  - name: pymedphys_dicom
+    requirements:
+      - python >=3.7
+      - matplotlib
+      - numpy >=1.12
+      - packaging
+      - pydicom
+      - pymedphys_base =={{ version }}
+      - pymedphys_utilities =={{ version }}
+
+  - name: pymedphys_electronfactors
+    requirements:
+      - python >=3.7
+      - matplotlib
+      - numpy >=1.12
+      - scipy
+      - shapely
+
+  - name: pymedphys_fileformats
+    requirements:
+      - python >=3.7
+      - numpy >=1.12
+      - pandas
+      - pymedphys_base =={{ version }}
+
+  - name: pymedphys_gamma
+    requirements:
+      - python >=3.7
+      - numpy >=1.12
+      - pymedphys_dicom =={{ version }}
+
+  - name: pymedphys_labs
+    requirements:
+      - python >=3.7
+      - Pillow
+      - matplotlib
+      - numpy >=1.12
+      - pymedphys_utilities =={{ version }}
+      - scipy
+      - xarray
+
+  - name: pymedphys_logfiles
+    requirements:
+      - python >=3.7
+      - attrs
+      - matplotlib
+      - numpy >=1.12
+      - pandas
+      - pymedphys_databases =={{ version }}
+      - pymedphys_fileformats =={{ version }}
+      - pymedphys_mudensity =={{ version }}
+      - pymedphys_utilities =={{ version }}
+      - python-dateutil
+
+  - name: pymedphys_mudensity
+    requirements:
+      - python >=3.7
+      - matplotlib
+      - numpy >=1.12
+      - pymedphys_base =={{ version }}
+      - pymedphys_utilities =={{ version }}
+
+  - name: pymedphys_utilities
+    requirements:
+      - python >=3.7
+      - numpy >=1.12
+
+  - name: pymedphys_xlwings
+    requirements:
+      - python >=3.7
+      - numpy >=1.12
+      - pydicom
+      - pymedphys_dicom =={{ version }}
+      - pymedphys_fileformats =={{ version }}
+      - pymedphys_utilities =={{ version }}
+      - scipy
+
+
 about:
   home: https://pymedphys.com
   license: GNU Affero General Public v3 or later (AGPL-3.0+)
   license_family: AGPL
-  license_file: LICENSE
+  license_file: LICENSE-AGPL-3.0-or-later
   summary: Medical Physics Python toolbox
 
 extra:
