@@ -11,6 +11,10 @@ source:
     sha256: 2cd3f6c09c861e9734f0048c8dbe309a482383470451840c793c1ddf824ede3d
 
 
+build:
+  number: {{ build_number }}
+
+
 outputs:
   - name: pymedphys
     build:
