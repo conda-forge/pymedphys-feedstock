@@ -27,6 +27,7 @@ source:
   - fn: '{{ name }}{{ package[0] }}-{{ version }}.tar.gz'
     url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}{{ package[0] }}/{{ name }}{{ package[0] }}-{{ version }}.tar.gz
     sha256: {{ package[1] }}
+    folder: {{ name }}{{ package[0] }}
   {% endfor %}
 
 build:
