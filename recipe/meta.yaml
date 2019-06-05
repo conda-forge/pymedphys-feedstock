@@ -1,28 +1,33 @@
 {% set name = "pymedphys" %}
 {% set version = "0.8.5" %}
 
-{% set subpackages = [
-  ("", 23979b662caa7d59936c94883777e73588465dec9aafd4683135f5bd5f86510e),
-  ("_analysis", 89795f630797fcec712e23745df02e30d7479d7ff9179ab454ef5c29e4d7b393)
-] %}
+{% set packages = (
+    [["", "23979b662caa7d59936c94883777e73588465dec9aafd4683135f5bd5f86510e"], 
+     ["_analysis", "89795f630797fcec712e23745df02e30d7479d7ff9179ab454ef5c29e4d7b393"],
+     ["_base", "9917439b2791a594625f2536d85f5889defb3572964e46cd86acd712c191716f"],
+     ["_coordsandscales", "0be107cfb7cc091e193db8a16c8252c2066179e0170b46a5fa913cc2280cd142"],
+     ["_databases", "6cb5a7c54d4b083829c98376fb7393d4c76b7b40bbba8c349208c0e25a30ffa8"],
+     ["_dicom", "1da27730fb15b164bf9d8d17bfec72153a731d523b4c80164cc1cdfdd84f3c81"],
+     ["_electronfactors", "f70f5b82648e7a06b3310b0cc3bc71d8f99652d07d3c48416cd2f65b6aa2294b"],
+     ["_fileformats", "ae70b61df07a91bd4878683556b1f3df4482fe71732e7662aa7d47a166dabdb4"],
+     ["_gamma", "df6f857eb026cc3d20bb76fb80d5c9ba1fc8789343d31cdc3ea36ca5cd39f24d"],
+     ["_labs", "96501c6d3b47940fbed4fb078258644e357b7a55dc8ca5828e2d510db72c8e1c"],
+     ["_logfiles", "32790cf0fbe15b16fcfa2ca29b35f1fbf8ec83445715442b516aecccae9f171b"],
+     ["_mudensity", "2c5e7f41c5c45a47544a8c4a7d7d4bd4ede78da4c4ea445d3136ad564bcf01a8"],
+     ["_utilities", "d475ac2b3cc8bce7df068bcfc18d6bcdcbca43e6af205d3d07dd82bb7c603808"],
+     ["_xlwings", "ae60ccc5c8c0f35e8512cdcd42d4eca98ee760007c1752fc3084ca97b16a0124"]]
+) %}
 
 package:
   name: '{{ name|lower }}'
   version: '{{ version }}'
 
 source:
-  - fn: '{{ name }}-{{ version }}.tar.gz'
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 23979b662caa7d59936c94883777e73588465dec9aafd4683135f5bd5f86510e
-  - fn: '{{ name }}_analysis-{{ version }}.tar.gz'
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 89795f630797fcec712e23745df02e30d7479d7ff9179ab454ef5c29e4d7b393
-  - fn: '{{ name }}_base-{{ version }}.tar.gz'
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 9917439b2791a594625f2536d85f5889defb3572964e46cd86acd712c191716f
-  - fn: '{{ name }}_base-{{ version }}.tar.gz'
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 9917439b2791a594625f2536d85f5889defb3572964e46cd86acd712c191716f
+  {% for package in packages %}
+  - fn: '{{ name }}{{ package[0] }}-{{ version }}.tar.gz'
+    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}{{ package[0] }}/{{ name }}{{ package[0] }}-{{ version }}.tar.gz
+    sha256: {{ package[1] }}
+  {% endfor %}
 
 build:
   number: 0
@@ -37,6 +42,10 @@ requirements:
     - pip
   run:
     - pymedphys =={{ version }}
+
+test:
+  imports:
+    - pymedphys
 
 outputs:
   - name: pymedphys
@@ -55,11 +64,6 @@ outputs:
       - pymedphys_mudensity =={{ version }}
       - pymedphys_utilities =={{ version }}
       - pymedphys_xlwings =={{ version }}
-  - name: 
-
-test:
-  imports:
-    - pymedphys
 
 about:
   home: https://pymedphys.com
