@@ -1,40 +1,21 @@
 {% set name = "pymedphys" %}
 {% set version = "0.8.5" %}
 
-{% set packages = (
-    [["", "23979b662caa7d59936c94883777e73588465dec9aafd4683135f5bd5f86510e"], 
-     ["_analysis", "89795f630797fcec712e23745df02e30d7479d7ff9179ab454ef5c29e4d7b393"],
-     ["_base", "9917439b2791a594625f2536d85f5889defb3572964e46cd86acd712c191716f"],
-     ["_coordsandscales", "0be107cfb7cc091e193db8a16c8252c2066179e0170b46a5fa913cc2280cd142"],
-     ["_databases", "6cb5a7c54d4b083829c98376fb7393d4c76b7b40bbba8c349208c0e25a30ffa8"],
-     ["_dicom", "1da27730fb15b164bf9d8d17bfec72153a731d523b4c80164cc1cdfdd84f3c81"],
-     ["_electronfactors", "f70f5b82648e7a06b3310b0cc3bc71d8f99652d07d3c48416cd2f65b6aa2294b"],
-     ["_fileformats", "ae70b61df07a91bd4878683556b1f3df4482fe71732e7662aa7d47a166dabdb4"],
-     ["_gamma", "df6f857eb026cc3d20bb76fb80d5c9ba1fc8789343d31cdc3ea36ca5cd39f24d"],
-     ["_labs", "96501c6d3b47940fbed4fb078258644e357b7a55dc8ca5828e2d510db72c8e1c"],
-     ["_logfiles", "32790cf0fbe15b16fcfa2ca29b35f1fbf8ec83445715442b516aecccae9f171b"],
-     ["_mudensity", "2c5e7f41c5c45a47544a8c4a7d7d4bd4ede78da4c4ea445d3136ad564bcf01a8"],
-     ["_utilities", "d475ac2b3cc8bce7df068bcfc18d6bcdcbca43e6af205d3d07dd82bb7c603808"],
-     ["_xlwings", "ae60ccc5c8c0f35e8512cdcd42d4eca98ee760007c1752fc3084ca97b16a0124"]]
-) %}
-
 package:
   name: '{{ name|lower }}'
   version: '{{ version }}'
 
 source:
-  {% for package in packages %}
-  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}{{ package[0] }}/{{ name }}{{ package[0] }}-{{ version }}.tar.gz
-    sha256: {{ package[1] }}
-    folder: {{ name }}{{ package[0] }}
-  {% endfor %}
+  - url: https://github.com/pymedphys/pymedphys/archive/v{{ version }}.tar.gz
+    sha256: 558100b1bb0d290c7be379942c429aba3eeff3d0d62bae2822100b5014b0d7c4
 
 build:
   number: 0
   noarch: python
   entry_points:
     - pymedphys = pymedphys.cli.main:pymedphys_cli
-  script: "python -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: "python -m pip install ./packages/pymedphys --no-deps --ignore-installed --no-cache-dir -vvv"
+
 
 requirements:
   host:
@@ -73,11 +54,12 @@ test:
     - pymedphys.trf
     - pymedphys.utilities
 
+
 outputs:
   - name: pymedphys_analysis
     build:
       script: 
-        - python -m pip install ./pymedphys_analysis -vvv
+        - "python -m pip install ./packages/pymedphys_analysis --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
       host:
         - python
@@ -90,141 +72,202 @@ outputs:
         - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
         - scipy
 
+
   - name: pymedphys_base
+    build:
+      script: 
+        - "python -m pip install ./packages/pymedphys_base --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
-      - python >=3.7
-      - numpy >=1.12
-    files:
-      - Lib/site-packages/pymedphys_base
-      - Lib/site-packages/pymedphys_base-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - numpy >=1.12
+
 
   - name: pymedphys_coordsandscales
+    build:
+      script: 
+        - "python -m pip install ./packages/pymedphys_coordsandscales --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
-      - python >=3.7
-      - numpy >=1.12
-    files:
-      - Lib/site-packages/pymedphys_coordsandscales
-      - Lib/site-packages/pymedphys_coordsandscales-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - numpy >=1.12
+
 
   - name: pymedphys_databases
+    build:
+      script: 
+        - "python -m pip install ./packages/pymedphys_databases --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
-      - python >=3.7
-      - attrs
-      - keyring
-      - numpy >=1.12
-      - pandas
-      - pymedphys_base =={{ version }}
-      - pymedphys_fileformats =={{ version }}
-      - pymedphys_mudensity =={{ version }}
-      - pymedphys_utilities =={{ version }}
-      - pymssql
-    files:
-      - Lib/site-packages/pymedphys_databases
-      - Lib/site-packages/pymedphys_databases-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - attrs
+        - keyring
+        - numpy >=1.12
+        - pandas
+        - {{ pin_subpackage("pymedphys_base", exact=True) }}
+        - {{ pin_subpackage("pymedphys_fileformats", exact=True) }}
+        - {{ pin_subpackage("pymedphys_mudensity", exact=True) }}
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+        - pymssql
+
 
   - name: pymedphys_dicom
+    build:
+      script: 
+        - "python -m pip install ./packages/pymedphys_dicom --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
-      - python >=3.7
-      - matplotlib
-      - numpy >=1.12
-      - packaging
-      - pydicom
-      - pymedphys_base =={{ version }}
-      - pymedphys_utilities =={{ version }}
-    files:
-      - Lib/site-packages/pymedphys_dicom
-      - Lib/site-packages/pymedphys_dicom-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - matplotlib
+        - numpy >=1.12
+        - packaging
+        - pydicom
+        - {{ pin_subpackage("pymedphys_base", exact=True) }}
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+
 
   - name: pymedphys_electronfactors
+    build:
+      script: 
+        - "python -m pip install ./packages/pymedphys_electronfactors --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
-      - python >=3.7
-      - matplotlib
-      - numpy >=1.12
-      - scipy
-      - shapely
-    files:
-      - Lib/site-packages/pymedphys_electronfactors
-      - Lib/site-packages/pymedphys_electronfactors-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - matplotlib
+        - numpy >=1.12
+        - scipy
+        - shapely
+
 
   - name: pymedphys_fileformats
+    build:
+      script: 
+        - "python -m pip install ./packages/pymedphys_fileformats --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
-      - python >=3.7
-      - numpy >=1.12
-      - pandas
-      - pymedphys_base =={{ version }}
-    files:
-      - Lib/site-packages/pymedphys_fileformats
-      - Lib/site-packages/pymedphys_fileformats-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - numpy >=1.12
+        - pandas
+        - {{ pin_subpackage("pymedphys_base", exact=True) }}
+
 
   - name: pymedphys_gamma
+    build:
+      script: 
+        - "python -m pip install ./packages/pymedphys_gamma --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
-      - python >=3.7
-      - numpy >=1.12
-      - pymedphys_dicom =={{ version }}
-    files:
-      - Lib/site-packages/pymedphys_gamma
-      - Lib/site-packages/pymedphys_gamma-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - numpy >=1.12
+        - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
+
 
   - name: pymedphys_labs
+    build:
+      script: 
+        - "python -m pip install ./packages/pymedphys_labs --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
-      - python >=3.7
-      - Pillow
-      - matplotlib
-      - numpy >=1.12
-      - pymedphys_utilities =={{ version }}
-      - scipy
-      - xarray
-    files:
-      - Lib/site-packages/pymedphys_labs
-      - Lib/site-packages/pymedphys_labs-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - Pillow
+        - matplotlib
+        - numpy >=1.12
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+        - scipy
+        - xarray
+
 
   - name: pymedphys_logfiles
+    build:
+      script: 
+        - "python -m pip install ./packages/pymedphys_logfiles --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
-      - python >=3.7
-      - attrs
-      - matplotlib
-      - numpy >=1.12
-      - pandas
-      - pymedphys_databases =={{ version }}
-      - pymedphys_fileformats =={{ version }}
-      - pymedphys_mudensity =={{ version }}
-      - pymedphys_utilities =={{ version }}
-      - python-dateutil
-    files:
-      - Lib/site-packages/pymedphys_logfiles
-      - Lib/site-packages/pymedphys_logfiles-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - attrs
+        - matplotlib
+        - numpy >=1.12
+        - pandas
+        - {{ pin_subpackage("pymedphys_databases", exact=True) }}
+        - {{ pin_subpackage("pymedphys_fileformats", exact=True) }}
+        - {{ pin_subpackage("pymedphys_mudensity", exact=True) }}
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+        - python-dateutil
+
 
   - name: pymedphys_mudensity
+    build:
+      script: 
+        - "python -m pip install ./packages/pymedphys_mudensity --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
-      - python >=3.7
-      - matplotlib
-      - numpy >=1.12
-      - pymedphys_base =={{ version }}
-      - pymedphys_utilities =={{ version }}
-    files:
-      - Lib/site-packages/pymedphys_mudensity
-      - Lib/site-packages/pymedphys_mudensity-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - matplotlib
+        - numpy >=1.12
+        - {{ pin_subpackage("pymedphys_base", exact=True) }}
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+
 
   - name: pymedphys_utilities
+    build:
+      script: 
+        - "python -m pip install ./packages/pymedphys_utilities --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
-      - python >=3.7
-      - numpy >=1.12
-    files:
-      - Lib/site-packages/pymedphys_utilities
-      - Lib/site-packages/pymedphys_utilities-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - numpy >=1.12
+
 
   - name: pymedphys_xlwings
+    build:
+      script: 
+        - "python -m pip install ./packages/pymedphys_xlwings --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
-      - python >=3.7
-      - numpy >=1.12
-      - pydicom
-      - pymedphys_dicom =={{ version }}
-      - pymedphys_fileformats =={{ version }}
-      - pymedphys_utilities =={{ version }}
-      - scipy
-    files:
-      - Lib/site-packages/pymedphys_xlwings
-      - Lib/site-packages/pymedphys_xlwings-{{ version }}.dist-info
+      host:
+        - python
+        - pip
+      run:
+        - python >=3.7
+        - numpy >=1.12
+        - pydicom
+        - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
+        - {{ pin_subpackage("pymedphys_fileformats", exact=True) }}
+        - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
+        - scipy
+        
 
 about:
   home: https://pymedphys.com
