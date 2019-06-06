@@ -1,5 +1,5 @@
 {% set name = "pymedphys" %}
-{% set version = "0.8.5" %}
+{% set version = "0.9.0" %}
 {% set build_number = 0 %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/pymedphys/pymedphys/releases/download/v{{ version }}/v{{ version }}.tar.gz
-    sha256: 2cd3f6c09c861e9734f0048c8dbe309a482383470451840c793c1ddf824ede3d
+    sha256: a78ffcaf75328f882baeee99c0908f1d147c780752b395b3bbafec3235c2f2d7
 
 
 build:
