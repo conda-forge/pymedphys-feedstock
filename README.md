@@ -1,5 +1,5 @@
-About pymedphys
-===============
+About pymedphys-split
+=====================
 
 Home: https://pymedphys.com
 
@@ -15,10 +15,11 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>All platforms:</td>
+<table><tr><td>All platforms:</td>
     <td>
-      <img src="https://img.shields.io/badge/noarch-disabled-lightgrey.svg" alt="noarch disabled">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5378&branchName=master">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pymedphys-feedstock?branchName=master">
+      </a>
     </td>
   </tr>
 </table>
@@ -29,20 +30,33 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys-green.svg)](https://anaconda.org/conda-forge/pymedphys) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys.svg)](https://anaconda.org/conda-forge/pymedphys) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys.svg)](https://anaconda.org/conda-forge/pymedphys) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys.svg)](https://anaconda.org/conda-forge/pymedphys) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_analysis-green.svg)](https://anaconda.org/conda-forge/pymedphys_analysis) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_analysis.svg)](https://anaconda.org/conda-forge/pymedphys_analysis) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_analysis.svg)](https://anaconda.org/conda-forge/pymedphys_analysis) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_analysis.svg)](https://anaconda.org/conda-forge/pymedphys_analysis) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_base-green.svg)](https://anaconda.org/conda-forge/pymedphys_base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_base.svg)](https://anaconda.org/conda-forge/pymedphys_base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_base.svg)](https://anaconda.org/conda-forge/pymedphys_base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_base.svg)](https://anaconda.org/conda-forge/pymedphys_base) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_coordsandscales-green.svg)](https://anaconda.org/conda-forge/pymedphys_coordsandscales) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_coordsandscales.svg)](https://anaconda.org/conda-forge/pymedphys_coordsandscales) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_coordsandscales.svg)](https://anaconda.org/conda-forge/pymedphys_coordsandscales) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_coordsandscales.svg)](https://anaconda.org/conda-forge/pymedphys_coordsandscales) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_databases-green.svg)](https://anaconda.org/conda-forge/pymedphys_databases) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_databases.svg)](https://anaconda.org/conda-forge/pymedphys_databases) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_databases.svg)](https://anaconda.org/conda-forge/pymedphys_databases) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_databases.svg)](https://anaconda.org/conda-forge/pymedphys_databases) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_dicom-green.svg)](https://anaconda.org/conda-forge/pymedphys_dicom) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_dicom.svg)](https://anaconda.org/conda-forge/pymedphys_dicom) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_dicom.svg)](https://anaconda.org/conda-forge/pymedphys_dicom) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_dicom.svg)](https://anaconda.org/conda-forge/pymedphys_dicom) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_electronfactors-green.svg)](https://anaconda.org/conda-forge/pymedphys_electronfactors) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_electronfactors.svg)](https://anaconda.org/conda-forge/pymedphys_electronfactors) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_electronfactors.svg)](https://anaconda.org/conda-forge/pymedphys_electronfactors) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_electronfactors.svg)](https://anaconda.org/conda-forge/pymedphys_electronfactors) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_fileformats-green.svg)](https://anaconda.org/conda-forge/pymedphys_fileformats) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_fileformats.svg)](https://anaconda.org/conda-forge/pymedphys_fileformats) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_fileformats.svg)](https://anaconda.org/conda-forge/pymedphys_fileformats) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_fileformats.svg)](https://anaconda.org/conda-forge/pymedphys_fileformats) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_gamma-green.svg)](https://anaconda.org/conda-forge/pymedphys_gamma) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_gamma.svg)](https://anaconda.org/conda-forge/pymedphys_gamma) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_gamma.svg)](https://anaconda.org/conda-forge/pymedphys_gamma) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_gamma.svg)](https://anaconda.org/conda-forge/pymedphys_gamma) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_labs-green.svg)](https://anaconda.org/conda-forge/pymedphys_labs) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_labs.svg)](https://anaconda.org/conda-forge/pymedphys_labs) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_labs.svg)](https://anaconda.org/conda-forge/pymedphys_labs) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_labs.svg)](https://anaconda.org/conda-forge/pymedphys_labs) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_logfiles-green.svg)](https://anaconda.org/conda-forge/pymedphys_logfiles) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_logfiles.svg)](https://anaconda.org/conda-forge/pymedphys_logfiles) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_logfiles.svg)](https://anaconda.org/conda-forge/pymedphys_logfiles) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_logfiles.svg)](https://anaconda.org/conda-forge/pymedphys_logfiles) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_mudensity-green.svg)](https://anaconda.org/conda-forge/pymedphys_mudensity) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_mudensity.svg)](https://anaconda.org/conda-forge/pymedphys_mudensity) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_mudensity.svg)](https://anaconda.org/conda-forge/pymedphys_mudensity) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_mudensity.svg)](https://anaconda.org/conda-forge/pymedphys_mudensity) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_utilities-green.svg)](https://anaconda.org/conda-forge/pymedphys_utilities) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_utilities.svg)](https://anaconda.org/conda-forge/pymedphys_utilities) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_utilities.svg)](https://anaconda.org/conda-forge/pymedphys_utilities) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_utilities.svg)](https://anaconda.org/conda-forge/pymedphys_utilities) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pymedphys_xlwings-green.svg)](https://anaconda.org/conda-forge/pymedphys_xlwings) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pymedphys_xlwings.svg)](https://anaconda.org/conda-forge/pymedphys_xlwings) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pymedphys_xlwings.svg)](https://anaconda.org/conda-forge/pymedphys_xlwings) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pymedphys_xlwings.svg)](https://anaconda.org/conda-forge/pymedphys_xlwings) |
 
-Installing pymedphys
-====================
+Installing pymedphys-split
+==========================
 
-Installing `pymedphys` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `pymedphys-split` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `pymedphys` can be installed with:
+Once the `conda-forge` channel has been enabled, `pymedphys, pymedphys_analysis, pymedphys_base, pymedphys_coordsandscales, pymedphys_databases, pymedphys_dicom, pymedphys_electronfactors, pymedphys_fileformats, pymedphys_gamma, pymedphys_labs, pymedphys_logfiles, pymedphys_mudensity, pymedphys_utilities, pymedphys_xlwings` can be installed with:
 
 ```
-conda install pymedphys
+conda install pymedphys pymedphys_analysis pymedphys_base pymedphys_coordsandscales pymedphys_databases pymedphys_dicom pymedphys_electronfactors pymedphys_fileformats pymedphys_gamma pymedphys_labs pymedphys_logfiles pymedphys_mudensity pymedphys_utilities pymedphys_xlwings
 ```
 
 It is possible to list all of the versions of `pymedphys` available on your platform with:
@@ -90,17 +104,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating pymedphys-feedstock
-============================
+Updating pymedphys-split-feedstock
+==================================
 
-If you would like to improve the pymedphys recipe or build a new
+If you would like to improve the pymedphys-split recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/pymedphys-feedstock are
+Note that all branches in the conda-forge/pymedphys-split-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
@@ -115,5 +129,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@Centrus007](https://github.com/Centrus007/)
 * [@SimonBiggs](https://github.com/SimonBiggs/)
 

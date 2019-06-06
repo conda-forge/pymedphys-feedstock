@@ -1,5 +1,5 @@
 {% set name = "pymedphys" %}
-{% set version = "0.8.5" %}
+{% set version = "0.9.0" %}
 {% set build_number = 0 %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/pymedphys/pymedphys/releases/download/v{{ version }}/v{{ version }}.tar.gz
-    sha256: 2cd3f6c09c861e9734f0048c8dbe309a482383470451840c793c1ddf824ede3d
+    sha256: 05c5995daff512c703db80023d8e61c49338c5451ff9bf22bfd487e2c3bca02f
 
 
 build:
@@ -26,7 +26,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -70,7 +70,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_analysis && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -93,7 +93,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_base && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -112,7 +112,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_coordsandscales && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -131,7 +131,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_databases && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -158,7 +158,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_dicom && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -182,7 +182,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_electronfactors && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -204,7 +204,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_fileformats && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -225,7 +225,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_gamma && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -245,7 +245,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_labs && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -269,7 +269,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_logfiles && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -296,7 +296,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_mudensity && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -318,7 +318,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_utilities && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
@@ -337,7 +337,7 @@ outputs:
         - "export SUBPACKAGE=pymedphys_xlwings && yarn conda-forge"
     requirements:
       host:
-        - python
+        - python >=3.7
         - pip
         - yarn
       run:
