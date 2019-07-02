@@ -1,6 +1,6 @@
 {% set name = "pymedphys" %}
 {% set version = "0.10.0" %}
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 
 package:
   name: pymedphys-split
@@ -42,6 +42,7 @@ outputs:
         - {{ pin_subpackage("pymedphys_labs", exact=True) }}
         - {{ pin_subpackage("pymedphys_logfiles", exact=True) }}
         - {{ pin_subpackage("pymedphys_mudensity", exact=True) }}
+        - {{ pin_subpackage("pymedphys_pinnacle", exact=True) }}
         - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
         - {{ pin_subpackage("pymedphys_xlwings", exact=True) }}
     test:
@@ -57,6 +58,7 @@ outputs:
         - pymedphys.mephysto
         - pymedphys.msq
         - pymedphys.mudensity
+        - pymedphys.pinnacle
         - pymedphys.plt
         - pymedphys.trf
         - pymedphys.utilities
@@ -308,6 +310,27 @@ outputs:
     test:
       imports:
         - pymedphys_mudensity
+        
+        
+  - name: pymedphys_pinnacle
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: 
+        - "export SUBPACKAGE=pymedphys_pinnacle && yarn conda-forge"
+    requirements:
+      host:
+        - python >=3.7
+        - pip
+        - yarn
+      run:
+        - python >=3.7
+        - PyYAML
+        - numpy >=1.12
+        - pydicom
+    test:
+      imports:
+        - pymedphys_pinnacle
 
 
   - name: pymedphys_utilities
