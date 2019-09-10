@@ -1,6 +1,6 @@
 {% set name = "pymedphys" %}
-{% set version = "0.10.0" %}
-{% set build_number = 1 %}
+{% set version = "0.11.0" %}
+{% set build_number = 0 %}
 
 package:
   name: pymedphys-split
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/pymedphys/pymedphys/releases/download/v{{ version }}/v{{ version }}.tar.gz
-    sha256: 78ba7c55324212f1749a68c30aee7088289e59c96961fa0fe391167b8926b9b0
+    sha256: bc33e266f6b9d37a64cea2fe62e087e1a8efee8992f7039b4f99db80eff2633d
 
 
 build:
