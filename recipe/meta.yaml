@@ -1,6 +1,6 @@
 {% set name = "pymedphys" %}
 {% set version = "0.11.0" %}
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 
 package:
   name: pymedphys-split
@@ -77,7 +77,7 @@ outputs:
         - yarn
       run:
         - python >=3.7
-        - matplotlib
+        - matplotlib-base
         - numpy >=1.12
         - pydicom
         - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
@@ -165,7 +165,7 @@ outputs:
         - yarn
       run:
         - python >=3.7
-        - matplotlib
+        - matplotlib-base
         - numpy >=1.12
         - packaging
         - pydicom
@@ -189,7 +189,7 @@ outputs:
         - yarn
       run:
         - python >=3.7
-        - matplotlib
+        - matplotlib-base
         - numpy >=1.12
         - scipy
         - shapely
@@ -253,7 +253,7 @@ outputs:
       run:
         - python >=3.7
         - Pillow
-        - matplotlib
+        - matplotlib-base
         - numpy >=1.12
         - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
         - scipy
@@ -277,7 +277,7 @@ outputs:
       run:
         - python >=3.7
         - attrs
-        - matplotlib
+        - matplotlib-base
         - numpy >=1.12
         - pandas
         - {{ pin_subpackage("pymedphys_databases", exact=True) }}
@@ -303,7 +303,7 @@ outputs:
         - yarn
       run:
         - python >=3.7
-        - matplotlib
+        - matplotlib-base
         - numpy >=1.12
         - {{ pin_subpackage("pymedphys_base", exact=True) }}
         - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
