@@ -5,11 +5,9 @@ Home: https://pymedphys.com
 
 Package license: GNU Affero General Public v3 or later (AGPL-3.0+)
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pymedphys-feedstock/blob/master/LICENSE.txt)
 
 Summary: Medical Physics Python toolbox
-
-
 
 Current build status
 ====================
