@@ -1,6 +1,6 @@
 {% set name = "pymedphys" %}
 {% set version = "0.11.0" %}
-{% set build_number = 1 %}
+{% set build_number = 2 %}
 
 package:
   name: pymedphys-split
@@ -26,11 +26,11 @@ outputs:
         - "export SUBPACKAGE=pymedphys && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - {{ pin_subpackage("pymedphys_analysis", exact=True) }}
         - {{ pin_subpackage("pymedphys_base", exact=True) }}
         - {{ pin_subpackage("pymedphys_coordsandscales", exact=True) }}
@@ -46,6 +46,8 @@ outputs:
         - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
         - {{ pin_subpackage("pymedphys_xlwings", exact=True) }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys
         - pymedphys.coordinates
@@ -72,17 +74,19 @@ outputs:
         - "export SUBPACKAGE=pymedphys_analysis && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - matplotlib-base
         - numpy >=1.12
         - pydicom
         - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
         - scipy
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_analysis
 
@@ -95,13 +99,15 @@ outputs:
         - "export SUBPACKAGE=pymedphys_base && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - numpy >=1.12
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_base
 
@@ -114,13 +120,15 @@ outputs:
         - "export SUBPACKAGE=pymedphys_coordsandscales && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - numpy >=1.12
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_coordsandscales
 
@@ -133,11 +141,11 @@ outputs:
         - "export SUBPACKAGE=pymedphys_databases && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - attrs
         - keyring
         - numpy >=1.12
@@ -148,6 +156,8 @@ outputs:
         - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
         - pymssql
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_databases
 
@@ -160,11 +170,11 @@ outputs:
         - "export SUBPACKAGE=pymedphys_dicom && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - matplotlib-base
         - numpy >=1.12
         - packaging
@@ -172,6 +182,8 @@ outputs:
         - {{ pin_subpackage("pymedphys_base", exact=True) }}
         - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_dicom
 
@@ -184,16 +196,18 @@ outputs:
         - "export SUBPACKAGE=pymedphys_electronfactors && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - matplotlib-base
         - numpy >=1.12
         - scipy
         - shapely
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_electronfactors
 
@@ -206,15 +220,17 @@ outputs:
         - "export SUBPACKAGE=pymedphys_fileformats && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - numpy >=1.12
         - pandas
         - {{ pin_subpackage("pymedphys_base", exact=True) }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_fileformats
 
@@ -227,14 +243,16 @@ outputs:
         - "export SUBPACKAGE=pymedphys_gamma && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - numpy >=1.12
         - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_gamma
 
@@ -247,11 +265,11 @@ outputs:
         - "export SUBPACKAGE=pymedphys_labs && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - Pillow
         - matplotlib-base
         - numpy >=1.12
@@ -259,6 +277,8 @@ outputs:
         - scipy
         - xarray
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_labs
 
@@ -271,11 +291,11 @@ outputs:
         - "export SUBPACKAGE=pymedphys_logfiles && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - attrs
         - matplotlib-base
         - numpy >=1.12
@@ -286,6 +306,8 @@ outputs:
         - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
         - python-dateutil
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_logfiles
 
@@ -298,16 +320,18 @@ outputs:
         - "export SUBPACKAGE=pymedphys_mudensity && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - matplotlib-base
         - numpy >=1.12
         - {{ pin_subpackage("pymedphys_base", exact=True) }}
         - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_mudensity
         
@@ -320,15 +344,17 @@ outputs:
         - "export SUBPACKAGE=pymedphys_pinnacle && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - PyYAML
         - numpy >=1.12
         - pydicom
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_pinnacle
 
@@ -341,13 +367,15 @@ outputs:
         - "export SUBPACKAGE=pymedphys_utilities && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - numpy >=1.12
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_utilities
 
@@ -360,11 +388,11 @@ outputs:
         - "export SUBPACKAGE=pymedphys_xlwings && yarn conda-forge"
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - yarn
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - numpy >=1.12
         - pydicom
         - {{ pin_subpackage("pymedphys_dicom", exact=True) }}
@@ -372,6 +400,8 @@ outputs:
         - {{ pin_subpackage("pymedphys_utilities", exact=True) }}
         - scipy
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - pymedphys_xlwings
 
